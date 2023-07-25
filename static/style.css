@@ -5,13 +5,22 @@
 
 html {
   --scrollbarBG: #fff;
-  --thumbBG: #90a4ae;
+  --thumbBG: #202c33;
 }
 
 body {
   background: #ccc;
+  /* put background image url here  */
+  background-image: url("");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 100%;
 }
 body .card {
+  background-image: url("../wp4410779-chat-wallpapers.png");
+  background-position: center;
+  background-repeat: repeat;
+  background-size: 100%;
   height: 45vw;
   width: 35vw;
   background-color: white;
@@ -19,10 +28,19 @@ body .card {
   margin-top: 5vw;
   box-shadow: 2vw 2vw 12vw 3vw #ccc;
 }
+
+#header svg {
+  width: 60px;
+  fill: #4e8175;
+}
 body .card #header {
   height: 5vw;
-  background: #000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #202c33;
   padding: 0vw;
+  padding-inline: 0.5vw;
 }
 body .card #header h1 {
   color: #fff;
@@ -40,15 +58,16 @@ body .card #message-section {
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }
+
 body .card #message-section::-webkit-scrollbar-track {
-  background: var(--scrollbarBG);
+  background: transparent;
 }
 body .card #message-section::-webkit-scrollbar-thumb {
   background-color: var(--thumbBG);
   border-radius: 6px;
-  border: 3px solid var(--scrollbarBG);
+  border: 3px solid var(#202c33);
 }
-body .card #message-section #bot,
+/* body .card #message-section #bot,
 body .card #message-section #user {
   position: relative;
   bottom: 0;
@@ -58,17 +77,17 @@ body .card #message-section #user {
   border-radius: 0px 1.5vw 1.5vw 1.8vw;
   padding: 1vw;
   margin: 1.5vw 0;
-}
-body .card #message-section #user {
+} */
+/* body .card #message-section #user {
   border: 1.5px solid #000;
   border-radius: 1.5vw 0vw 1.5vw 1.8vw;
   background-color: #000;
   float: right;
-}
-body .card #message-section #user #user-response {
+} */
+/* body .card #message-section #user #user-response {
   color: #fff;
-}
-body .card #message-section .message {
+} */
+/* body .card #message-section .message {
   color: #000;
   clear: both;
   line-height: 1.2vw;
@@ -79,8 +98,8 @@ body .card #message-section .message {
   max-width: 85%;
   word-wrap: break-word;
   z-index: 2;
-}
-body .card #input-section {
+} */
+/* body .card #input-section {
   z-index: 1;
   padding: 0 2.5vw;
   display: flex;
@@ -89,39 +108,65 @@ body .card #input-section {
   overflow: hidden;
   height: 6vw;
   width: 100%;
+} */
+.message {
+  margin: 0;
+  margin-block: 10px;
+  display: inline-block;
+  transition: all 0.5s ease-in;
+  box-shadow: rgb(32 6 6 / 78%) 5px 5px 10px 0px;
 }
-body .card #input-section input {
-  color: #000;
-  min-width: 0.5vw;
-  outline: none;
-  height: 5vw;
-  width: 26vw;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: solid #000 0.1vw;
+.message:hover {
+  box-shadow: rgb(32 6 6 / 78%) 6px 10px 12px 0px;
 }
-body .card .send {
-  background: transparent;
-  border: 0;
-  cursor: pointer;
-  flex: 0 0 auto;
-  margin-left: 1.4vw;
-  margin-right: 0vw;
-  padding: 0;
-  position: relative;
-  outline: none;
+.message#bot {
+  background-color: #24cedb;
+  color: white;
+  padding: 10px 30px 10px 10px;
+  border-radius: 16px 16px 16px 0px;
 }
-body .card .send .circle {
-  position: relative;
-  width: 4.8vw;
-  height: 4.8vw;
+.message#user {
+  align-self: flex-end;
+  background-color: #dcdcdc;
+  color: rgb(32, 6, 6);
+  padding: 10px 30px 10px 10px;
+  border-radius: 16px 16px 0px 16px;
+}
+
+#input-section {
+  background-color: #202c33;
+  padding: 15px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 10px;
 }
-body .card .send .circle i {
-  font-size: 3vw;
-  margin-left: -1vw;
-  margin-top: 1vw;
+.send {
+  border: 0px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.send i {
+  color: #8696a0;
+  font-size: 43px;
+}
+#input-section input {
+  outline: none;
+  border: 0px;
+  height: 40px;
+  flex-grow: 1;
+  background: #2a3942;
+  color: black;
+  border-radius: 20px;
+  color: #8696a0;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#message-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
